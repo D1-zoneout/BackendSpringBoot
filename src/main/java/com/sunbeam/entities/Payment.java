@@ -1,36 +1,43 @@
 package com.sunbeam.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
+@Getter
 @Setter
-@Getter 
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @ToString
-@Table(name = "payment")
+@Table(name = "payments")
 public class Payment extends BaseEntity {
-	@Column(name = "amount_paid")
+
+    @Column(name = "amount_paid", nullable = false)
     private float amountPaid;
-	@Column(name = "payment_status")
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "payment_method", nullable = false, length=20)
+    private PaymentMethods paymentMethod;
+
+    @Column(name = "payment_status", nullable = false)
     private boolean paymentStatus;
-	private PaymentMethods paymentMethods; 
+
+    @Column(name = "razorpay_payment_id")
     private String razorpayPaymentId;
-	@OneToOne
-	@JoinColumn(name = "booking_id")
-	private Booking booking;
-	@Column(name = "user_id")
-	private Long userId;
-	@Column(name = "turf_id")
+
+    @Column(name = "razorpay_order_id")
+    private String razorpayOrderId;
+
+    @Column(name = "razorpay_signature")
+    private String razorpaySignature;
+
+    @OneToOne
+    @JoinColumn(name = "booking_id", nullable = false)
+    private Booking booking;
+
+    @Column(name = "user_id", nullable = false)
+    private Long userId;
+
+    @Column(name = "turf_id", nullable = false)
     private Long turfId;
-	
 }
