@@ -19,12 +19,13 @@ import lombok.Setter;
 public class Review extends BaseEntity{
 	private int rating;
 	private String review;
-	@ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
-    // Review is linked to one turf
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "turf_id", nullable = false)
-    private Turf turf;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "user_id", nullable = false)
+	private User user;
+
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "turf_id", nullable = false)
+	private Turf turf;
+
 	
 }
