@@ -1,95 +1,28 @@
-# =============================
-# Java
-# =============================
-*.class
-*.jar
-*.war
-*.ear
+# Ignore Maven target directory
+target/
 
-# =============================
-# Build folders
-# =============================
-/target/
-/build/
-
-# =============================
-# Maven
-# =============================
-.mvn/
-!**/src/main/**/mvnw
-!**/src/main/**/mvnw.cmd
-pom.xml.versionsBackup
-dependency-reduced-pom.xml
-release.properties
-
-# =============================
-# Gradle
-# =============================
-.gradle/
-build/
-!gradle/wrapper/gradle-wrapper.jar
-
-# =============================
-# IDEs
-# =============================
-
-# IntelliJ
-.idea/
-*.iws
-*.iml
-*.ipr
-out/
-
-# Eclipse
-*.classpath
-*.project
-*.settings/
-.apt_generated
+# Ignore Eclipse/IDEA files
+.settings/
+.metadata/
+.project
+.classpath
 .factorypath
-.springBeans
 
-# VSCode
-.vscode/
-
-# NetBeans
-nbproject/private/
-build/
-nbbuild/
-dist/
-nbdist/
-.nb-gradle/
-
-# =============================
-# OS / System files
-# =============================
+# Ignore OS-specific files
 .DS_Store
 Thumbs.db
-ehthumbs.db
-Icon?
-Desktop.ini
 
-# =============================
-# Logs / Runtime files
-# =============================
+# Ignore log and temp files
 *.log
-*.swp
-*.bak
 *.tmp
 
-# =============================
-# Environment files
-# =============================
-.env
-.env.*
-application-*.properties
-application-*.yml
-*.local
-*.secret
+# Ignore IDE folders
+.idea/
+*.iml
 
-# =============================
-# Misc
-# =============================
-*.lock
-*.cache
-*.orig
-*.rej
+# Ignore node_modules if any frontend is here
+node_modules/
+
+# Ignore environment or secrets
+.env
+.env.local
