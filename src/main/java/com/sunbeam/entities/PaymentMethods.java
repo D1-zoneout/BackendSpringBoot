@@ -1,5 +1,5 @@
 package com.sunbeam.entities;
 
 public enum PaymentMethods {
-	CASH, CARD, ONLINE, WALLET
+	CASH, CARD, ONLINE, WALLET ,UPI
 }
