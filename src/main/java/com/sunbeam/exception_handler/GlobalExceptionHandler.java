@@ -1,9 +1,11 @@
 package com.sunbeam.exception_handler;
 
+import java.time.LocalDateTime;
 import java.util.HashMap;
 
 import java.util.List;
 import java.util.Map;
+import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 import org.springframework.http.HttpStatus;
@@ -71,5 +73,14 @@ public class GlobalExceptionHandler {
 		System.out.println("in catch all exc " + e);
 		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new ApiResponse(e.getMessage()));
 	}
+	
+	@ExceptionHandler(NoSuchElementException.class)
+	public ResponseEntity<?> handleNoSuchElementException(NoSuchElementException e) {
+	    System.out.println("in handle NoSuchElementException");
+	    return ResponseEntity.status(HttpStatus.NOT_FOUND)
+	                         .body(new ApiResponse("Requested element not found: " + e.getMessage()));
+	}
+	
+	
 
 }
